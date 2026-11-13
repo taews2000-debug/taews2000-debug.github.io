@@ -1506,5 +1506,28 @@ $('cReset').addEventListener('click',()=>{ cList.querySelectorAll('input').forEa
   .cam-frame.hide-self .mirrow > video{opacity:0}
 </style>
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
+
+<script>
+(() => {
+  const measurementId = ''; // Set to the site's GA4 web stream measurement ID.
+  if (!/^G-[A-Z0-9]+$/.test(measurementId)) return;
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { window.dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', measurementId, { allow_google_signals: false, allow_ad_personalization_signals: false });
+  const loader = document.createElement('script');
+  loader.async = true;
+  loader.src = 'https://www.googletagmanager.com/gtag/js?id=' + measurementId;
+  document.head.appendChild(loader);
+  const actions = { aStart: 'basic_start', mRunBtn: 'measurement_start', bStart: 'mock_start' };
+  document.addEventListener('click', event => {
+    const button = event.target.closest('button');
+    if (button && !button.disabled && actions[button.id]) gtag('event', actions[button.id]);
+  }, true);
+  document.addEventListener('change', event => {
+    if (event.target.matches('#cList input:checked')) gtag('event', 'self_check_item');
+  });
+})();
+</script>
 </body>
 </html>
